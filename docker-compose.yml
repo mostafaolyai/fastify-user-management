@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0.5
+    container_name: fastify_mongodb
+    ports:
+      - "27017:27017"  # Exposes MongoDB on localhost:27017
+    volumes:
+      - mongo-data:/data/db  # Persists MongoDB data even after container restarts
+    networks:
+      - app-network
+
+  app:
+    image: fastify_user_management  # Use the built image here
+    container_name: fastify_user_management
+    restart: always
+    ports:
+      - '3001:3001'
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:  # Named volume to persist data
+
+networks:
+  app-network:  # Isolated network for MongoDB service
