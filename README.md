@@ -50,7 +50,7 @@ Fastify User Management is a backend application built using **NestJS** and **Ty
    [http://localhost:3001/api](http://localhost:3001/api)  
 
 > **Note**:  
-> The image name **`fastify_user_management`** is hardcoded and cannot be changed.  
+> The image name **`fastify_user_management`** is hardcoded and cannot be changed. if you change the image name you have to change the name in the **`docker-compose.yml`** file
 
 ### Running without Docker
 
@@ -78,7 +78,7 @@ Swagger is integrated for API documentation. You can view it at:
 
 ## Rate Limiting
 
-The project uses `@nestjs/throttler` for rate limiting. The configuration is located in the `AppModule`.  
+The project uses `@nestjs/throttler` for rate limiting. The configuration is located in the `.env` file.  
 You can also define custom rate-limiting rules for specific endpoints as needed.  
 
 ## Configuration Notes
